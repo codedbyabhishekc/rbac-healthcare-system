@@ -1,0 +1,480 @@
+# Seed Data Guide
+
+This guide explains how to populate your database with test data for development and testing.
+
+## 🌱 What Does the Seed Script Do?
+
+The seed script creates **33 users** with realistic healthcare data:
+
+### Users Created
+- **3 Administrators** - Hospital management staff
+- **8 Doctors** - Various medical specialists  
+- **7 Nurses** - Nursing staff
+- **15 Patients** - People seeking medical care
+
+### Additional Data
+- **22 Appointments** - Mix of scheduled, completed, and cancelled
+- **15 Medical Records** - Diagnoses and prescriptions
+- All with realistic medical scenarios
+
+---
+
+## 🚀 How to Run the Seed Script
+
+### Method 1: Using npm script (Recommended)
+
+```bash
+cd backend
+npm run seed
+```
+
+### Method 2: Direct execution
+
+```bash
+cd backend
+node seed.js
+```
+
+### What Happens:
+1. ✅ Clears existing data (keeps default admin)
+2. ✅ Creates 33 users with hashed passwords
+3. ✅ Creates appointments between patients and doctors
+4. ✅ Creates medical records for patients
+5. ✅ Displays summary of what was created
+
+---
+
+## 🔐 Login Credentials
+
+All passwords follow the pattern: **Role + 123**
+
+### Default Admin (Always Available)
+```
+Username: admin
+Password: admin123
+```
+
+### Administrators (3 users)
+```
+Username: admin1, admin2, admin3
+Password: Administrator123
+Email: admin1@hospital.com, admin2@hospital.com, admin3@hospital.com
+```
+
+### Doctors (8 users)
+```
+Username: doctor1, doctor2, doctor3, doctor4, doctor5, doctor6, doctor7, doctor8
+Password: Doctor123
+Email: doctor1@hospital.com through doctor8@hospital.com
+```
+
+### Nurses (7 users)
+```
+Username: nurse1, nurse2, nurse3, nurse4, nurse5, nurse6, nurse7
+Password: Nurse123
+Email: nurse1@hospital.com through nurse7@hospital.com
+```
+
+### Patients (15 users)
+```
+Username: patient1, patient2, patient3, ... patient15
+Password: Patient123
+Email: patient1@email.com through patient15@email.com
+```
+
+---
+
+## 📋 Sample Data Details
+
+### User Details
+
+#### Administrators
+| Username | Full Name | Phone | Email |
+|----------|-----------|-------|-------|
+| admin1 | Sarah Johnson | 555-0101 | admin1@hospital.com |
+| admin2 | Michael Chen | 555-0102 | admin2@hospital.com |
+| admin3 | Emily Davis | 555-0103 | admin3@hospital.com |
+
+#### Doctors
+| Username | Full Name | Phone | Email |
+|----------|-----------|-------|-------|
+| doctor1 | Dr. James Wilson | 555-0201 | doctor1@hospital.com |
+| doctor2 | Dr. Lisa Anderson | 555-0202 | doctor2@hospital.com |
+| doctor3 | Dr. Robert Martinez | 555-0203 | doctor3@hospital.com |
+| doctor4 | Dr. Jennifer Taylor | 555-0204 | doctor4@hospital.com |
+| doctor5 | Dr. David Brown | 555-0205 | doctor5@hospital.com |
+| doctor6 | Dr. Amanda White | 555-0206 | doctor6@hospital.com |
+| doctor7 | Dr. Christopher Lee | 555-0207 | doctor7@hospital.com |
+| doctor8 | Dr. Maria Garcia | 555-0208 | doctor8@hospital.com |
+
+#### Nurses
+| Username | Full Name | Phone |
+|----------|-----------|-------|
+| nurse1 | Nancy Thompson | 555-0301 |
+| nurse2 | Patricia Moore | 555-0302 |
+| nurse3 | Linda Jackson | 555-0303 |
+| nurse4 | Barbara Harris | 555-0304 |
+| nurse5 | Susan Clark | 555-0305 |
+| nurse6 | Jessica Lewis | 555-0306 |
+| nurse7 | Michelle Walker | 555-0307 |
+
+#### Patients
+| Username | Full Name | Phone |
+|----------|-----------|-------|
+| patient1 | John Smith | 555-1001 |
+| patient2 | Mary Johnson | 555-1002 |
+| patient3 | William Brown | 555-1003 |
+| patient4 | Patricia Jones | 555-1004 |
+| patient5 | Robert Davis | 555-1005 |
+| patient6 | Jennifer Miller | 555-1006 |
+| patient7 | Michael Wilson | 555-1007 |
+| patient8 | Linda Moore | 555-1008 |
+| patient9 | David Taylor | 555-1009 |
+| patient10 | Barbara Anderson | 555-1010 |
+| patient11 | Richard Thomas | 555-1011 |
+| patient12 | Susan Jackson | 555-1012 |
+| patient13 | Joseph White | 555-1013 |
+| patient14 | Jessica Harris | 555-1014 |
+| patient15 | Thomas Martin | 555-1015 |
+
+### Appointment Types
+
+**Scheduled Appointments (Future):**
+- Annual physical examinations
+- Follow-up consultations
+- Diabetes management reviews
+- Hypertension check-ups
+- Allergy consultations
+- Skin examinations
+
+**Completed Appointments (Past):**
+- Initial consultations
+- Blood pressure monitoring
+- Lab results reviews
+- Medication adjustments
+- Flu symptoms treatment
+- Routine check-ups
+
+**Cancelled Appointments:**
+- Dental pain (patient cancelled)
+- Eye examination (rescheduled)
+
+### Medical Conditions Included
+
+The seed data includes realistic medical records for:
+- Hypertension
+- Type 2 Diabetes
+- Common Cold
+- GERD (Acid Reflux)
+- Acute Bronchitis
+- Anxiety Disorder
+- Lumbar Strain (Back Pain)
+- Migraine
+- Seasonal Allergies
+- Vitamin D Deficiency
+- Upper Respiratory Infections
+- Osteoarthritis
+- Insomnia
+
+---
+
+## 🧪 Testing Scenarios
+
+### Scenario 1: Patient Journey
+```bash
+1. Login as patient1 / Patient123
+2. View your appointments (should see 2-3)
+3. View your medical records (should see 1-2)
+4. Check appointment status (scheduled/completed)
+```
+
+### Scenario 2: Doctor Workflow
+```bash
+1. Login as doctor1 / Doctor123
+2. View your appointments (see assigned patients)
+3. Complete an appointment
+4. Create a medical record for a patient
+5. View all medical records you've created
+```
+
+### Scenario 3: Nurse Tasks
+```bash
+1. Login as nurse1 / Nurse123
+2. View all appointments
+3. Schedule a new appointment
+4. Check appointment statuses
+```
+
+### Scenario 4: Admin Management
+```bash
+1. Login as admin1 / Administrator123
+2. View all users (33 total)
+3. View user statistics by role
+4. Click "View Records" on any patient
+5. See comprehensive patient history
+```
+
+### Scenario 5: RBAC Testing
+```bash
+1. Login as patient1
+2. Try to access /api/users (should fail - 403)
+3. Try to access another patient's records (should fail - 403)
+4. Logout and login as doctor1
+5. Access /api/users/role/Patient (should succeed)
+6. Create a medical record (should succeed)
+```
+
+---
+
+## 🔄 Re-running the Seed Script
+
+**⚠️ WARNING:** Running the seed script will:
+- Delete all existing appointments
+- Delete all existing medical records  
+- Delete all users (except the default admin)
+- Create fresh seed data
+
+**Safe to run:** Anytime you want to reset to a clean state with test data
+
+**To preserve custom data:** Don't run the seed script, or modify it to append rather than replace
+
+---
+
+## 📊 Data Relationships
+
+```
+Administrators (3)
+├── Can view all users
+├── Can delete users
+└── Can view all appointments and records
+
+Doctors (8)
+├── Have appointments with patients
+├── Create medical records for patients
+└── Can complete/cancel appointments
+
+Nurses (7)
+├── Schedule appointments
+├── View all appointments
+└── Can cancel appointments
+
+Patients (15)
+├── Have appointments with doctors
+├── Have medical records created by doctors
+└── Can only view their own data
+```
+
+---
+
+## 🎯 Common Use Cases
+
+### Testing Authorization
+```javascript
+// Test that patients can't view other patients
+Login as patient1 → Try to view patient2 records → Should fail
+
+// Test that doctors can view patient records
+Login as doctor1 → View any patient → Should succeed
+
+// Test that nurses can schedule appointments
+Login as nurse1 → Create appointment → Should succeed
+
+// Test that patients can't delete users
+Login as patient1 → Try to delete user → Should fail
+```
+
+### Testing Patient Record Viewer
+```javascript
+// As admin
+1. Login as admin1
+2. Go to User Management
+3. Click "View Records" on patient1
+4. Should see:
+   - Patient info
+   - 2-3 appointments
+   - 1-2 medical records
+   - Summary statistics
+```
+
+### Testing Appointments
+```javascript
+// View different appointment states
+Login as doctor1 → See scheduled appointments
+Login as doctor2 → See completed appointments
+Login as patient1 → See your appointment history
+```
+
+### Testing Medical Records
+```javascript
+// View medical history
+Login as patient1 → View medical records
+Login as doctor1 → Create new medical record
+Login as admin → View all patient records
+```
+
+---
+
+## 🛠️ Customizing Seed Data
+
+### Add More Users
+
+Edit `backend/seed.js` and add to the `users` array:
+
+```javascript
+const users = [
+  // ... existing users
+  { 
+    username: 'patient16', 
+    email: 'patient16@email.com', 
+    password: 'Patient123', 
+    role: 'Patient', 
+    full_name: 'New Patient Name', 
+    phone: '555-1016' 
+  },
+];
+```
+
+### Add More Appointments
+
+Add to the `appointmentsData` array:
+
+```javascript
+const appointmentsData = [
+  // ... existing appointments
+  { 
+    patientIndex: 31, // Index of patient in users array
+    doctorIndex: 3,   // Index of doctor in users array
+    date: '2024-12-25T10:00:00', 
+    reason: 'Christmas checkup', 
+    status: 'scheduled' 
+  },
+];
+```
+
+### Add More Medical Records
+
+Add to the `medicalRecordsData` array:
+
+```javascript
+const medicalRecordsData = [
+  // ... existing records
+  { 
+    patientIndex: 31, 
+    doctorIndex: 3, 
+    diagnosis: 'New Diagnosis', 
+    prescription: 'New Prescription', 
+    notes: 'Additional notes', 
+    visitDate: '2024-12-01' 
+  },
+];
+```
+
+---
+
+## 📝 Database Schema Reference
+
+### Users Table
+```sql
+- id (INTEGER PRIMARY KEY)
+- username (TEXT UNIQUE)
+- email (TEXT UNIQUE)
+- password (TEXT) -- bcrypt hashed
+- role (TEXT) -- Administrator, Doctor, Nurse, Patient
+- full_name (TEXT)
+- phone (TEXT)
+- created_at (DATETIME)
+- updated_at (DATETIME)
+```
+
+### Appointments Table
+```sql
+- id (INTEGER PRIMARY KEY)
+- patient_id (INTEGER) -- FK to users
+- doctor_id (INTEGER) -- FK to users
+- appointment_date (DATETIME)
+- status (TEXT) -- scheduled, completed, cancelled
+- reason (TEXT)
+- notes (TEXT)
+- created_at (DATETIME)
+- updated_at (DATETIME)
+```
+
+### Medical Records Table
+```sql
+- id (INTEGER PRIMARY KEY)
+- patient_id (INTEGER) -- FK to users
+- doctor_id (INTEGER) -- FK to users
+- diagnosis (TEXT)
+- prescription (TEXT)
+- notes (TEXT)
+- visit_date (DATETIME)
+- created_at (DATETIME)
+- updated_at (DATETIME)
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### Error: "SQLITE_CONSTRAINT: UNIQUE constraint failed"
+**Cause:** Trying to create users that already exist  
+**Solution:** The script clears existing users first. Make sure database is writable.
+
+### Error: "Cannot find module 'bcryptjs'"
+**Cause:** Dependencies not installed  
+**Solution:** Run `npm install` in backend directory
+
+### Error: "No such table: users"
+**Cause:** Database not initialized  
+**Solution:** Start the server once first (`npm start`), then run seed
+
+### Seed script completes but no users appear
+**Cause:** Wrong database path or permissions  
+**Solution:** Check that `backend/database/` directory exists and is writable
+
+### Password authentication fails after seeding
+**Cause:** Wrong password format  
+**Solution:** Remember passwords are role-based:
+- `Administrator123`, `Doctor123`, `Nurse123`, `Patient123`
+
+---
+
+## ✅ Verification Checklist
+
+After running the seed script, verify:
+
+- [ ] Can login as `admin1` with password `Administrator123`
+- [ ] Can login as `doctor1` with password `Doctor123`
+- [ ] Can login as `nurse1` with password `Nurse123`
+- [ ] Can login as `patient1` with password `Patient123`
+- [ ] Admin can see 33+ total users
+- [ ] Doctor dashboard shows appointments
+- [ ] Patient can view their medical records
+- [ ] Swagger API shows all endpoints working
+- [ ] "View Records" button shows patient history
+
+---
+
+## 🎉 Quick Start After Seeding
+
+```bash
+# 1. Seed the database
+cd backend
+npm run seed
+
+# 2. Start the server (if not running)
+npm start
+
+# 3. Start frontend (new terminal)
+cd ../frontend
+npm start
+
+# 4. Login and test!
+# Try: admin1 / Administrator123
+#      doctor1 / Doctor123
+#      patient1 / Patient123
+```
+
+---
+
+**Happy Testing! 🚀**
