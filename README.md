@@ -267,9 +267,6 @@ npm test
 
 Feel free to raise a PR
 
-## License
-
-MIT License
 
 ## Author
 
@@ -285,7 +282,7 @@ Created as a portfolio project to build other projects on.
 
 This complete RBAC system includes:
 
-✅ **Backend (Express + SQLite + JWT)**
+✅ **Backend (Express + SQLite + JWT + Swagger)**
 - Authentication & Authorization
 - Swagger API Documentation
 - 5 API route modules
