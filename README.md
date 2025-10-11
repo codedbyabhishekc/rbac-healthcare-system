@@ -315,5 +315,3 @@ This complete RBAC system includes:
 - 30+ test records
 
 ---
-
-**Ready to build? Start with [MASTER_FILE_INDEX.md](MASTER_FILE_INDEX.md) or [QUICK_START.md](QUICK_START.md)!** 🚀
