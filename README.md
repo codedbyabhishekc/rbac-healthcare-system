@@ -8,13 +8,9 @@ A comprehensive Role-Based Access Control (RBAC) system built with React, Expres
 
 | Resource | Description |
 |----------|-------------|
-| **[📋 MASTER FILE INDEX](MASTER_FILE_INDEX.md)** | **Complete list of all 43 files with search guide** |
-| **[🎯 QUICK REFERENCE CARD](QUICK_REFERENCE_CARD.md)** | **One-page cheat sheet (print-friendly)** |
-| [🚀 Quick Start Guide](QUICK_START.md) | Get running in 5 minutes |
 | [🧪 Testing Guide](TESTING_GUIDE.md) | Comprehensive testing strategies |
 | [🌱 Seed Data Guide](SEED_DATA_GUIDE.md) | How to use test data (30+ records) |
-| [🔐 Credentials Reference](CREDENTIALS_REFERENCE.md) | All login credentials |
-| [📝 Visual File Tree](VISUAL_FILE_TREE.txt) | ASCII art file structure |
+
 
 ---
 
@@ -50,43 +46,9 @@ A comprehensive Role-Based Access Control (RBAC) system built with React, Expres
 ## Project Structure
 
 ```
-rbac-system/
-├── backend/
-│   ├── src/
-│   │   ├── config/
-│   │   │   └── database.js
-│   │   ├── middleware/
-│   │   │   └── auth.middleware.js
-│   │   └── routes/
-│   │       ├── auth.routes.js
-│   │       ├── user.routes.js
-│   │       ├── appointment.routes.js
-│   │       └── medicalRecord.routes.js
-│   ├── database/
-│   │   └── rbac.db (auto-generated)
-│   ├── .env
-│   ├── package.json
-│   └── server.js
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── PrivateRoute.js
-│   │   │   ├── AdminDashboard.js
-│   │   │   ├── DoctorDashboard.js
-│   │   │   ├── NurseDashboard.js
-│   │   │   └── PatientDashboard.js
-│   │   ├── context/
-│   │   │   └── AuthContext.js
-│   │   ├── pages/
-│   │   │   ├── Login.js
-│   │   │   ├── Register.js
-│   │   │   ├── Dashboard.js
-│   │   │   ├── Auth.css
-│   │   │   └── Dashboard.css
-│   │   ├── App.js
-│   │   └── App.css
-│   └── package.json
-└── README.md
+
+  ** TO Add Here **
+
 ```
 
 ## Installation & Setup
@@ -144,11 +106,7 @@ This creates:
 - 22 Appointments
 - 15 Medical Records
 
-**All passwords follow the pattern: Role + 123**
-- Administrators: `Administrator123`
-- Doctors: `Doctor123`
-- Nurses: `Nurse123`
-- Patients: `Patient123`
+**All passwords are same except admin 1: pass@123**
 
 See [SEED_DATA_GUIDE.md](SEED_DATA_GUIDE.md) for complete details.
 
@@ -309,7 +267,7 @@ npm test
 
 ## Contributing
 
-This project is designed for educational purposes to demonstrate testing strategies and RBAC implementation.
+Feel free to raise a PR
 
 ## License
 
@@ -317,46 +275,9 @@ MIT License
 
 ## Author
 
-Created as a portfolio project to demonstrate full-stack development and testing expertise.
+Created as a portfolio project to build other projects on.
 
----
 
-## 📥 How to Get All Files
-
-All **43 files** in this project were created as **artifacts** in the conversation above.
-
-### Option 1: Use the Master Index (Recommended)
-1. Check **[MASTER_FILE_INDEX.md](MASTER_FILE_INDEX.md)** artifact
-2. Follow the checklist for all 43 files
-3. Use search keywords to find each artifact
-4. Copy content to your project
-
-### Option 2: Manual Collection
-1. **Scroll up** through this conversation
-2. Look for **blue/gray code boxes** (artifacts)
-3. Each has a **title** showing the file path
-4. **Copy the content** from each box
-5. **Create the file** in your project
-
-### Option 3: Use the Visual Tree
-1. Check **[VISUAL_FILE_TREE.txt](VISUAL_FILE_TREE.txt)** artifact
-2. See the complete structure with all files
-3. Follow the priority phases (1, 2, 3)
-4. Build incrementally
-
-### Quick Search Tips
-Use browser search (Ctrl+F / Cmd+F) for:
-- Backend files: "backend/server.js", "auth.routes.js"
-- Frontend files: "Login.js", "AdminDashboard.js"
-- Docs: "QUICK_START.md", "TESTING_GUIDE.md"
-
-### File Organization
-```
-📦 43 Total Files:
-├── 🔧 Backend: 13 files
-├── 🎨 Frontend: 22 files
-└── 📖 Documentation: 8 files
-```
 
 **All artifacts are available in this conversation - scroll up to find them!** 🎯
 
