@@ -46,7 +46,7 @@ node seed.js
 
 ## 🔐 Login Credentials
 
-All passwords follow the pattern: **Role + 123**
+All passwords are same: **pass@123**
 
 ### Default Admin (Always Available)
 ```
@@ -54,39 +54,9 @@ Username: admin
 Password: admin123
 ```
 
-### Administrators (3 users)
-```
-Username: admin1, admin2, admin3
-Password: Administrator123
-Email: admin1@hospital.com, admin2@hospital.com, admin3@hospital.com
-```
-
-### Doctors (8 users)
-```
-Username: doctor1, doctor2, doctor3, doctor4, doctor5, doctor6, doctor7, doctor8
-Password: Doctor123
-Email: doctor1@hospital.com through doctor8@hospital.com
-```
-
-### Nurses (7 users)
-```
-Username: nurse1, nurse2, nurse3, nurse4, nurse5, nurse6, nurse7
-Password: Nurse123
-Email: nurse1@hospital.com through nurse7@hospital.com
-```
-
-### Patients (15 users)
-```
-Username: patient1, patient2, patient3, ... patient15
-Password: Patient123
-Email: patient1@email.com through patient15@email.com
-```
-
----
-
-## 📋 Sample Data Details
-
 ### User Details
+
+All passwords are same: **pass@123**
 
 #### Administrators
 | Username | Full Name | Phone | Email |
