@@ -302,8 +302,6 @@ This complete RBAC system includes:
 - Setup guides
 - Testing strategies
 - Seed data guide
-- Credentials reference
-- Complete file index
 
 ✅ **Features**
 - JWT authentication
