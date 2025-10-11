@@ -210,7 +210,7 @@ The seed data includes realistic medical records for:
 
 ---
 
-## 📊 Data Relationships
+## 📊 Data Flow Relationships
 
 ```
 Administrators (3)
@@ -232,54 +232,6 @@ Patients (15)
 ├── Have appointments with doctors
 ├── Have medical records created by doctors
 └── Can only view their own data
-```
-
----
-
-## 🎯 Common Use Cases
-
-### Testing Authorization
-```javascript
-// Test that patients can't view other patients
-Login as patient1 → Try to view patient2 records → Should fail
-
-// Test that doctors can view patient records
-Login as doctor1 → View any patient → Should succeed
-
-// Test that nurses can schedule appointments
-Login as nurse1 → Create appointment → Should succeed
-
-// Test that patients can't delete users
-Login as patient1 → Try to delete user → Should fail
-```
-
-### Testing Patient Record Viewer
-```javascript
-// As admin
-1. Login as admin1
-2. Go to User Management
-3. Click "View Records" on patient1
-4. Should see:
-   - Patient info
-   - 2-3 appointments
-   - 1-2 medical records
-   - Summary statistics
-```
-
-### Testing Appointments
-```javascript
-// View different appointment states
-Login as doctor1 → See scheduled appointments
-Login as doctor2 → See completed appointments
-Login as patient1 → See your appointment history
-```
-
-### Testing Medical Records
-```javascript
-// View medical history
-Login as patient1 → View medical records
-Login as doctor1 → Create new medical record
-Login as admin → View all patient records
 ```
 
 ---
@@ -381,47 +333,6 @@ const medicalRecordsData = [
 - created_at (DATETIME)
 - updated_at (DATETIME)
 ```
-
----
-
-## 🐛 Troubleshooting
-
-### Error: "SQLITE_CONSTRAINT: UNIQUE constraint failed"
-**Cause:** Trying to create users that already exist  
-**Solution:** The script clears existing users first. Make sure database is writable.
-
-### Error: "Cannot find module 'bcryptjs'"
-**Cause:** Dependencies not installed  
-**Solution:** Run `npm install` in backend directory
-
-### Error: "No such table: users"
-**Cause:** Database not initialized  
-**Solution:** Start the server once first (`npm start`), then run seed
-
-### Seed script completes but no users appear
-**Cause:** Wrong database path or permissions  
-**Solution:** Check that `backend/database/` directory exists and is writable
-
-### Password authentication fails after seeding
-**Cause:** Wrong password format  
-**Solution:** Remember passwords are role-based:
-- `Administrator123`, `Doctor123`, `Nurse123`, `Patient123`
-
----
-
-## ✅ Verification Checklist
-
-After running the seed script, verify:
-
-- [ ] Can login as `admin1` with password `Administrator123`
-- [ ] Can login as `doctor1` with password `Doctor123`
-- [ ] Can login as `nurse1` with password `Nurse123`
-- [ ] Can login as `patient1` with password `Patient123`
-- [ ] Admin can see 33+ total users
-- [ ] Doctor dashboard shows appointments
-- [ ] Patient can view their medical records
-- [ ] Swagger API shows all endpoints working
-- [ ] "View Records" button shows patient history
 
 ---
 
