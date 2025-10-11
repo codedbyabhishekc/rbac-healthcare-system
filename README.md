@@ -106,9 +106,7 @@ This creates:
 - 22 Appointments
 - 15 Medical Records
 
-**All passwords are same except admin 1: pass@123**
-
-See [SEED_DATA_GUIDE.md](SEED_DATA_GUIDE.md) for complete details.
+See [SEED_DATA_GUIDE.md](SEED_DATA_GUIDE.md) for complete details and passwords.
 
 ### Frontend Setup
 
