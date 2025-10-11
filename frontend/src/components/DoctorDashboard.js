@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from './Modal';
 import Notification from './Notification';
+import { useAuth } from '../context/AuthContext';
 
 const DoctorDashboard = () => {
+  const { isAuthenticated, loading: authLoading } = useAuth();
   const [appointments, setAppointments] = useState([]);
   const [medicalRecords, setMedicalRecords] = useState([]);
   const [patients, setPatients] = useState([]);
@@ -20,10 +22,13 @@ const DoctorDashboard = () => {
   const [formErrors, setFormErrors] = useState({});
 
   useEffect(() => {
-    fetchAppointments();
-    fetchMedicalRecords();
-    fetchPatients();
-  }, []);
+    // Only fetch if authenticated and auth loading is complete
+    if (isAuthenticated && !authLoading) {
+      fetchAppointments();
+      fetchMedicalRecords();
+      fetchPatients();
+    }
+  }, [isAuthenticated, authLoading]);
 
   const fetchAppointments = async () => {
     try {
@@ -31,7 +36,9 @@ const DoctorDashboard = () => {
       const response = await axios.get('/api/appointments');
       setAppointments(response.data);
     } catch (error) {
-      setError(error.response?.data?.error || 'Error fetching appointments');
+      if (error.response?.status !== 401) {
+        setError(error.response?.data?.error || 'Error fetching appointments');
+      }
     }
   };
 
@@ -41,7 +48,9 @@ const DoctorDashboard = () => {
       const response = await axios.get('/api/medical-records');
       setMedicalRecords(response.data);
     } catch (error) {
-      setError(error.response?.data?.error || 'Error fetching medical records');
+      if (error.response?.status !== 401) {
+        setError(error.response?.data?.error || 'Error fetching medical records');
+      }
     }
   };
 
@@ -50,7 +59,9 @@ const DoctorDashboard = () => {
       const response = await axios.get('/api/users/role/Patient');
       setPatients(response.data);
     } catch (error) {
-      console.error('Error fetching patients:', error);
+      if (error.response?.status !== 401) {
+        console.error('Error fetching patients:', error);
+      }
     }
   };
 
@@ -104,6 +115,7 @@ const DoctorDashboard = () => {
       });
     } catch (error) {
       setError(error.response?.data?.error || 'Error updating appointment');
+      console.error('Error updating appointment:', error);
     }
   };
 

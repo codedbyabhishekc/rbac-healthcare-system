@@ -192,19 +192,42 @@ router.put('/:id', authenticateToken, authorizeRoles('Administrator', 'Doctor', 
   const appointmentId = req.params.id;
   const { appointment_date, status, notes } = req.body;
 
-  db.run(
-    `UPDATE appointments SET appointment_date = ?, status = ?, notes = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?`,
-    [appointment_date, status, notes, appointmentId],
-    function(err) {
-      if (err) {
-        return res.status(500).json({ error: 'Error updating appointment' });
-      }
-      if (this.changes === 0) {
-        return res.status(404).json({ error: 'Appointment not found' });
-      }
-      res.json({ message: 'Appointment updated successfully' });
+  // Build dynamic update query based on provided fields
+  const updates = [];
+  const values = [];
+
+  if (appointment_date !== undefined) {
+    updates.push('appointment_date = ?');
+    values.push(appointment_date);
+  }
+  if (status !== undefined) {
+    updates.push('status = ?');
+    values.push(status);
+  }
+  if (notes !== undefined) {
+    updates.push('notes = ?');
+    values.push(notes);
+  }
+
+  if (updates.length === 0) {
+    return res.status(400).json({ error: 'No fields to update' });
+  }
+
+  updates.push('updated_at = CURRENT_TIMESTAMP');
+  values.push(appointmentId);
+
+  const query = `UPDATE appointments SET ${updates.join(', ')} WHERE id = ?`;
+
+  db.run(query, values, function(err) {
+    if (err) {
+      console.error('Update error:', err);
+      return res.status(500).json({ error: 'Error updating appointment' });
     }
-  );
+    if (this.changes === 0) {
+      return res.status(404).json({ error: 'Appointment not found' });
+    }
+    res.json({ message: 'Appointment updated successfully' });
+  });
 });
 
 /**

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from './Modal';
 import Notification from './Notification';
+import { useAuth } from '../context/AuthContext';
 
 const NurseDashboard = () => {
+  const { isAuthenticated, loading: authLoading } = useAuth();
   const [appointments, setAppointments] = useState([]);
   const [patients, setPatients] = useState([]);
   const [doctors, setDoctors] = useState([]);
@@ -20,10 +22,13 @@ const NurseDashboard = () => {
   const [formErrors, setFormErrors] = useState({});
 
   useEffect(() => {
-    fetchAppointments();
-    fetchPatients();
-    fetchDoctors();
-  }, []);
+    // Only fetch if authenticated and auth loading is complete
+    if (isAuthenticated && !authLoading) {
+      fetchAppointments();
+      fetchPatients();
+      fetchDoctors();
+    }
+  }, [isAuthenticated, authLoading]);
 
   const fetchAppointments = async () => {
     try {
@@ -31,7 +36,9 @@ const NurseDashboard = () => {
       const response = await axios.get('/api/appointments');
       setAppointments(response.data);
     } catch (error) {
-      setError(error.response?.data?.error || 'Error fetching appointments');
+      if (error.response?.status !== 401) {
+        setError(error.response?.data?.error || 'Error fetching appointments');
+      }
     }
   };
 
@@ -40,7 +47,9 @@ const NurseDashboard = () => {
       const response = await axios.get('/api/users/role/Patient');
       setPatients(response.data);
     } catch (error) {
-      console.error('Error fetching patients:', error);
+      if (error.response?.status !== 401) {
+        console.error('Error fetching patients:', error);
+      }
     }
   };
 
@@ -49,7 +58,9 @@ const NurseDashboard = () => {
       const response = await axios.get('/api/users/role/Doctor');
       setDoctors(response.data);
     } catch (error) {
-      console.error('Error fetching doctors:', error);
+      if (error.response?.status !== 401) {
+        console.error('Error fetching doctors:', error);
+      }
     }
   };
 
@@ -120,6 +131,7 @@ const NurseDashboard = () => {
       });
     } catch (error) {
       setError(error.response?.data?.error || 'Error updating appointment');
+      console.error('Error updating appointment:', error);
     }
   };
 

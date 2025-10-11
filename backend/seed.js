@@ -50,49 +50,154 @@ const users = [
 
 // Sample appointments data
 const appointmentsData = [
-  { patientIndex: 18, doctorIndex: 3, date: '2025-12-15T09:00:00', reason: 'Annual physical examination', status: 'scheduled' },
-  { patientIndex: 19, doctorIndex: 4, date: '2025-12-15T10:30:00', reason: 'Follow-up consultation', status: 'scheduled' },
-  { patientIndex: 20, doctorIndex: 5, date: '2025-12-16T14:00:00', reason: 'Diabetes management review', status: 'scheduled' },
-  { patientIndex: 21, doctorIndex: 6, date: '2025-12-17T11:00:00', reason: 'Hypertension check-up', status: 'scheduled' },
-  { patientIndex: 22, doctorIndex: 7, date: '2025-12-18T15:30:00', reason: 'Respiratory infection symptoms', status: 'scheduled' },
-  { patientIndex: 23, doctorIndex: 8, date: '2025-12-19T09:30:00', reason: 'Allergy consultation', status: 'scheduled' },
-  { patientIndex: 24, doctorIndex: 9, date: '2025-12-20T13:00:00', reason: 'Skin rash examination', status: 'scheduled' },
-  { patientIndex: 25, doctorIndex: 10, date: '2025-12-21T10:00:00', reason: 'General health check-up', status: 'scheduled' },
+  { patientIndex: 18, doctorIndex: 3, date: '2025-12-15T09:00:00', reason: 'Suspects they turned into a werewolf', status: 'scheduled' },
+  { patientIndex: 19, doctorIndex: 4, date: '2025-12-15T10:30:00', reason: 'Can\'t stop hiccupping since Tuesday', status: 'scheduled' },
+  { patientIndex: 20, doctorIndex: 5, date: '2025-12-16T14:00:00', reason: 'Believes they\'re allergic to Mondays', status: 'scheduled' },
+  { patientIndex: 21, doctorIndex: 6, date: '2025-12-17T11:00:00', reason: 'Too much Netflix causing couch fusion', status: 'scheduled' },
+  { patientIndex: 22, doctorIndex: 7, date: '2025-12-18T15:30:00', reason: 'Laughed too hard at memes, now can\'t stop', status: 'scheduled' },
+  { patientIndex: 23, doctorIndex: 8, date: '2025-12-19T09:30:00', reason: 'Thinks WiFi is making them magnetic', status: 'scheduled' },
+  { patientIndex: 24, doctorIndex: 9, date: '2025-12-20T13:00:00', reason: 'Ate too much pizza, needs intervention', status: 'scheduled' },
+  { patientIndex: 25, doctorIndex: 10, date: '2025-12-21T10:00:00', reason: 'Convinced their cat is plotting against them', status: 'scheduled' },
   
   // Past completed appointments
-  { patientIndex: 18, doctorIndex: 3, date: '2025-11-01T09:00:00', reason: 'Initial consultation', status: 'completed', notes: 'Patient in good health' },
-  { patientIndex: 19, doctorIndex: 4, date: '2025-11-05T14:00:00', reason: 'Blood pressure monitoring', status: 'completed', notes: 'BP normal, continue medication' },
-  { patientIndex: 20, doctorIndex: 5, date: '2025-11-10T11:30:00', reason: 'Lab results review', status: 'completed', notes: 'All tests normal' },
-  { patientIndex: 21, doctorIndex: 6, date: '2025-11-12T10:00:00', reason: 'Medication adjustment', status: 'completed', notes: 'Dosage increased' },
-  { patientIndex: 22, doctorIndex: 7, date: '2025-11-15T15:00:00', reason: 'Flu symptoms', status: 'completed', notes: 'Prescribed antibiotics' },
-  { patientIndex: 23, doctorIndex: 8, date: '2025-11-18T09:00:00', reason: 'Chest pain evaluation', status: 'completed', notes: 'ECG normal, anxiety related' },
-  { patientIndex: 24, doctorIndex: 9, date: '2025-11-20T13:30:00', reason: 'Back pain assessment', status: 'completed', notes: 'Physical therapy recommended' },
-  { patientIndex: 25, doctorIndex: 10, date: '2025-11-22T11:00:00', reason: 'Headache consultation', status: 'completed', notes: 'Migraine diagnosis' },
-  { patientIndex: 26, doctorIndex: 3, date: '2025-11-25T14:30:00', reason: 'Routine check-up', status: 'completed', notes: 'Healthy, no concerns' },
-  { patientIndex: 27, doctorIndex: 4, date: '2025-11-28T10:30:00', reason: 'Cold symptoms', status: 'completed', notes: 'Rest and fluids advised' },
+  { patientIndex: 18, doctorIndex: 3, date: '2025-11-01T09:00:00', reason: 'Fear of running out of coffee', status: 'completed', notes: 'Prescribed unlimited coffee subscription' },
+  { patientIndex: 19, doctorIndex: 4, date: '2025-11-05T14:00:00', reason: 'Extreme procrastination disorder', status: 'completed', notes: 'Will start treatment... eventually' },
+  { patientIndex: 20, doctorIndex: 5, date: '2025-11-10T11:30:00', reason: 'Addicted to checking phone notifications', status: 'completed', notes: 'Phone confiscated during visit' },
+  { patientIndex: 21, doctorIndex: 6, date: '2025-11-12T10:00:00', reason: 'Can\'t remember last time touched grass', status: 'completed', notes: 'Prescribed 30 min outdoor daily' },
+  { patientIndex: 22, doctorIndex: 7, date: '2025-11-15T15:00:00', reason: 'Chronic dad joke syndrome', status: 'completed', notes: 'No cure available, it\'s hereditary' },
+  { patientIndex: 23, doctorIndex: 8, date: '2025-11-18T09:00:00', reason: 'Social media thumb strain', status: 'completed', notes: 'Take a break from scrolling' },
+  { patientIndex: 24, doctorIndex: 9, date: '2025-11-20T13:30:00', reason: 'Binge-watching fatigue', status: 'completed', notes: 'Recommend touching grass protocol' },
+  { patientIndex: 25, doctorIndex: 10, date: '2025-11-22T11:00:00', reason: 'Too many browser tabs syndrome', status: 'completed', notes: 'Closed 347 tabs during consultation' },
+  { patientIndex: 26, doctorIndex: 3, date: '2025-11-25T14:30:00', reason: 'Forgot how to adult', status: 'completed', notes: 'YouTube tutorial recommended' },
+  { patientIndex: 27, doctorIndex: 4, date: '2025-11-28T10:30:00', reason: 'Weekend went by too fast', status: 'completed', notes: 'Unfortunately, this is normal' },
   
   // Cancelled appointments
-  { patientIndex: 28, doctorIndex: 5, date: '2025-12-01T09:00:00', reason: 'Dental pain', status: 'cancelled', notes: 'Patient cancelled' },
-  { patientIndex: 29, doctorIndex: 6, date: '2025-12-03T15:00:00', reason: 'Eye examination', status: 'cancelled', notes: 'Rescheduled' },
+  { patientIndex: 28, doctorIndex: 5, date: '2025-12-01T09:00:00', reason: 'Keyboard warrior rage symptoms', status: 'cancelled', notes: 'Patient got banned from Twitter' },
+  { patientIndex: 29, doctorIndex: 6, date: '2025-12-03T15:00:00', reason: 'Fear of missing out (FOMO)', status: 'cancelled', notes: 'Missed appointment due to FOMO' },
 ];
 
-// Sample medical records data
+// Sample medical records data - FUNNY VERSION! 😄
 const medicalRecordsData = [
-  { patientIndex: 18, doctorIndex: 3, diagnosis: 'Hypertension (Stage 1)', prescription: 'Lisinopril 10mg daily', notes: 'Monitor blood pressure weekly', visitDate: '2025-11-01' },
-  { patientIndex: 19, doctorIndex: 4, diagnosis: 'Type 2 Diabetes Mellitus', prescription: 'Metformin 500mg twice daily', notes: 'Follow up in 3 months for A1C test', visitDate: '2025-11-05' },
-  { patientIndex: 20, doctorIndex: 5, diagnosis: 'Common Cold', prescription: 'Rest, fluids, and over-the-counter pain relievers', notes: 'Should resolve in 7-10 days', visitDate: '2025-11-10' },
-  { patientIndex: 21, doctorIndex: 6, diagnosis: 'Gastroesophageal Reflux Disease (GERD)', prescription: 'Omeprazole 20mg once daily before breakfast', notes: 'Avoid spicy foods and late-night meals', visitDate: '2025-11-12' },
-  { patientIndex: 22, doctorIndex: 7, diagnosis: 'Acute Bronchitis', prescription: 'Amoxicillin 500mg three times daily for 7 days', notes: 'Complete full course of antibiotics', visitDate: '2025-11-15' },
-  { patientIndex: 23, doctorIndex: 8, diagnosis: 'Anxiety Disorder', prescription: 'Sertraline 50mg daily, increase to 100mg after 2 weeks', notes: 'Consider cognitive behavioral therapy', visitDate: '2025-11-18' },
-  { patientIndex: 24, doctorIndex: 9, diagnosis: 'Lumbar Strain', prescription: 'Ibuprofen 400mg as needed, Physical therapy 3x per week', notes: 'Avoid heavy lifting for 4 weeks', visitDate: '2025-11-20' },
-  { patientIndex: 25, doctorIndex: 10, diagnosis: 'Migraine with Aura', prescription: 'Sumatriptan 50mg as needed for migraine attacks', notes: 'Keep headache diary, avoid known triggers', visitDate: '2025-11-22' },
-  { patientIndex: 26, doctorIndex: 3, diagnosis: 'Seasonal Allergies', prescription: 'Cetirizine 10mg daily during allergy season', notes: 'May cause drowsiness', visitDate: '2025-11-25' },
-  { patientIndex: 27, doctorIndex: 4, diagnosis: 'Vitamin D Deficiency', prescription: 'Vitamin D3 2000 IU daily', notes: 'Retest levels in 3 months', visitDate: '2025-11-28' },
-  { patientIndex: 18, doctorIndex: 3, diagnosis: 'Follow-up: Hypertension well controlled', prescription: 'Continue Lisinopril 10mg daily', notes: 'Blood pressure readings excellent', visitDate: '2025-10-15' },
-  { patientIndex: 19, doctorIndex: 4, diagnosis: 'Follow-up: Diabetes management', prescription: 'Continue Metformin 500mg twice daily', notes: 'A1C improved from 7.2% to 6.5%', visitDate: '2025-10-20' },
-  { patientIndex: 28, doctorIndex: 5, diagnosis: 'Upper Respiratory Infection', prescription: 'Symptomatic treatment with decongestants', notes: 'Viral infection, antibiotics not needed', visitDate: '2025-10-25' },
-  { patientIndex: 29, doctorIndex: 6, diagnosis: 'Osteoarthritis of the knee', prescription: 'Acetaminophen 650mg as needed, Physical therapy', notes: 'Consider knee replacement if conservative treatment fails', visitDate: '2025-10-28' },
-  { patientIndex: 30, doctorIndex: 7, diagnosis: 'Insomnia', prescription: 'Melatonin 3mg at bedtime, Sleep hygiene counseling', notes: 'Avoid screens 1 hour before bed', visitDate: '2025-11-02' },
+  { 
+    patientIndex: 18, 
+    doctorIndex: 3, 
+    diagnosis: 'Acute Meme-itis with chronic LOL syndrome', 
+    prescription: '2 funny cat videos daily, 1 dad joke before meals, avoid cringe content', 
+    notes: 'Patient laughed so hard, they forgot why they came. Mission accomplished!', 
+    visitDate: '2025-11-01' 
+  },
+  { 
+    patientIndex: 19, 
+    doctorIndex: 4, 
+    diagnosis: 'Netflix Addiction (Stage: Just-One-More-Episode)', 
+    prescription: 'Touch grass twice daily, sunlight exposure 15min, delete "Are you still watching?" shame', 
+    notes: 'Patient asked if life has a skip intro button. Concerning.', 
+    visitDate: '2025-11-05' 
+  },
+  { 
+    patientIndex: 20, 
+    doctorIndex: 5, 
+    diagnosis: 'Chronic Snooze Button Syndrome', 
+    prescription: 'Alarm clock placed across room, coffee IV recommended, motivational rooster', 
+    notes: 'Patient snoozed 47 times this morning. New record!', 
+    visitDate: '2025-11-10' 
+  },
+  { 
+    patientIndex: 21, 
+    doctorIndex: 6, 
+    diagnosis: 'Monday-phobia with Weekend Withdrawal', 
+    prescription: 'Friday thoughts all week, pretend every day is Saturday, pizza therapy', 
+    notes: 'Prescribed unlimited "It\'s Friday somewhere" mentality', 
+    visitDate: '2025-11-12' 
+  },
+  { 
+    patientIndex: 22, 
+    doctorIndex: 7, 
+    diagnosis: 'Extreme Dad Joke Disorder (EDD)', 
+    prescription: 'No puns for 24hrs, avoid "Hi Hungry, I\'m Dad" responses, support group meetings', 
+    notes: 'Patient made 3 dad jokes during exam. Incurable.', 
+    visitDate: '2025-11-15' 
+  },
+  { 
+    patientIndex: 23, 
+    doctorIndex: 8, 
+    diagnosis: 'Social Media Scroll Paralysis', 
+    prescription: 'Unfollow 50 accounts, touch grass protocol, reality check every 30min', 
+    notes: 'Patient tried to double-tap my clipboard. Yikes.', 
+    visitDate: '2025-11-18' 
+  },
+  { 
+    patientIndex: 24, 
+    doctorIndex: 9, 
+    diagnosis: 'Pizza Dependency Syndrome', 
+    prescription: 'Pizza once a day (down from 3x), try vegetables (very scary), cheese support group', 
+    notes: 'Patient cried when I mentioned salad. Progress will be slow.', 
+    visitDate: '2025-11-20' 
+  },
+  { 
+    patientIndex: 25, 
+    doctorIndex: 10, 
+    diagnosis: 'Chronic Procrastination Disease', 
+    prescription: 'Start tasks immediately (or tomorrow), to-do lists in easy-mode, deadline panic avoidance', 
+    notes: 'Will write follow-up notes later... maybe next week', 
+    visitDate: '2025-11-22' 
+  },
+  { 
+    patientIndex: 26, 
+    doctorIndex: 3, 
+    diagnosis: 'Coffee Deficiency Syndrome', 
+    prescription: 'Coffee every 2 hours, emergency espresso shots, caffeine IV if needed', 
+    notes: 'Patient fell asleep mid-sentence. Clearly needs more coffee.', 
+    visitDate: '2025-11-25' 
+  },
+  { 
+    patientIndex: 27, 
+    doctorIndex: 4, 
+    diagnosis: 'Selfie Arm Fatigue', 
+    prescription: 'Selfie stick, find good angle faster, face filter detox program', 
+    notes: 'Took 50 selfies in waiting room. No good angles found.', 
+    visitDate: '2025-11-28' 
+  },
+  { 
+    patientIndex: 18, 
+    doctorIndex: 3, 
+    diagnosis: 'Follow-up: Meme tolerance improving', 
+    prescription: 'Continue cat videos, add dog videos for variety, wholesome memes only', 
+    notes: 'Sent me 20 memes during visit. I laughed at 3.', 
+    visitDate: '2025-10-15' 
+  },
+  { 
+    patientIndex: 19, 
+    doctorIndex: 4, 
+    diagnosis: 'Follow-up: Netflix hours reduced to only 8 hours daily', 
+    prescription: 'Keep up the good work! Try going outside when sun is up', 
+    notes: 'Patient discovered reality TV. We may need to start over.', 
+    visitDate: '2025-10-20' 
+  },
+  { 
+    patientIndex: 28, 
+    doctorIndex: 5, 
+    diagnosis: 'Acute Keyboard Warrior Syndrome', 
+    prescription: 'Log off Twitter, count to 10 before replying, consider anger management memes', 
+    notes: 'Patient got into 5 internet arguments during visit. Aggressive.', 
+    visitDate: '2025-10-25' 
+  },
+  { 
+    patientIndex: 29, 
+    doctorIndex: 6, 
+    diagnosis: 'FOMO (Fear of Missing Out) - Critical Stage', 
+    prescription: 'Delete social media, accept that other people have lives, JOMO therapy (Joy of Missing Out)', 
+    notes: 'Patient checked phone 89 times. Asked if exam was Instagram-worthy.', 
+    visitDate: '2025-10-28' 
+  },
+  { 
+    patientIndex: 30, 
+    doctorIndex: 7, 
+    diagnosis: 'Chronic "One More Episode" Syndrome', 
+    prescription: 'Bedtime routine without screens, melatonin, acceptance that cliffhangers will exist', 
+    notes: 'Patient asked if they could binge-watch sleeping. Creative but no.', 
+    visitDate: '2025-11-02' 
+  },
 ];
 
 async function seedDatabase() {
@@ -199,14 +304,13 @@ async function seedDatabase() {
         console.log(`   • Nurses: 7`);
         console.log(`   • Patients: 15`);
         console.log(`   • Appointments: ${appointmentCount}`);
-        console.log(`   • Medical Records: ${recordCount}`);
+        console.log(`   • Medical Records: ${recordCount} (HILARIOUS! 😄)`);
         console.log(`\n🔐 Login Credentials:`);
         console.log(`   • Admin: admin / admin123`);
-        console.log(`   • Administrators: admin1-3 / pass@123`);
-        console.log(`   • Doctors: doctor1-8 / pass@123`);
-        console.log(`   • Nurses: nurse1-7 / pass@123`);
-        console.log(`   • Patients: patient1-15 / pass@123`);
-        console.log('\n✨ You can now login and test the system!\n');
+        console.log(`   • All Users: username / pass@123`);
+        console.log(`   • Examples: admin1/pass@123, doctor1/pass@123, patient1/pass@123`);
+        console.log('\n🤣 WARNING: Medical records contain extreme humor!');
+        console.log('✨ You can now login and laugh at the diagnoses!\n');
 
         db.close();
         resolve();

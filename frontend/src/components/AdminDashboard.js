@@ -3,8 +3,10 @@ import axios from 'axios';
 import Modal from './Modal';
 import Notification from './Notification';
 import PatientRecord from './PatientRecord';
+import { useAuth } from '../context/AuthContext';
 
 const AdminDashboard = () => {
+  const { isAuthenticated, loading: authLoading } = useAuth();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedTab, setSelectedTab] = useState('users');
@@ -13,8 +15,11 @@ const AdminDashboard = () => {
   const [selectedPatientId, setSelectedPatientId] = useState(null);
 
   useEffect(() => {
-    fetchUsers();
-  }, []);
+    // Only fetch if authenticated and auth loading is complete
+    if (isAuthenticated && !authLoading) {
+      fetchUsers();
+    }
+  }, [isAuthenticated, authLoading]);
 
   const fetchUsers = async () => {
     try {
@@ -22,7 +27,10 @@ const AdminDashboard = () => {
       const response = await axios.get('/api/users');
       setUsers(response.data);
     } catch (error) {
-      setError(error.response?.data?.error || 'Error fetching users');
+      // Only show error if it's not a 401 (handled by interceptor)
+      if (error.response?.status !== 401) {
+        setError(error.response?.data?.error || 'Error fetching users');
+      }
     } finally {
       setLoading(false);
     }
