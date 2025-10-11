@@ -255,19 +255,20 @@ Patients (15)
 
 ## Role Permissions Matrix (Not Completly Implemented)
 
-| Feature | Administrator | Doctor | Nurse | Patient |
-|---------|--------------|--------|-------|---------|
-| View all users | ✅ | ❌ | ❌ | ❌ |
-| Create users | ✅ | ❌ | ❌ | ❌ |
-| Delete users | ✅ | ❌ | ❌ | ❌ |
-| View all appointments | ✅ | Own only | ✅ | Own only |
-| Create appointments | ✅ | ✅ | ✅ | ❌ |
-| Update appointments | ✅ | ✅ | ✅ | ❌ |
-| Delete appointments | ✅ | ✅ | ❌ | ❌ |
-| View medical records | ✅ | Own patients | ❌ | Own only |
-| Create medical records | ❌ | ✅ | ❌ | ❌ |
-| Update medical records | ✅ | ✅ | ❌ | ❌ |
-| Delete medical records | ✅ | ✅ | ❌ | ❌ |
+# RBAC Permission Matrix
+
+| Permission / Action             | Administrator | Doctor | Nurse | Patient |
+|--------------------------------|---------------|--------|-------|---------|
+| View all users                  | ✅             | ❌      | ❌     | ❌       |
+| Delete users                    | ✅             | ❌      | ❌     | ❌       |
+| View all appointments           | ✅             | ❌      | ✅     | ❌       |
+| View own appointments           | ❌             | ✅      | ❌     | ✅       |
+| Schedule appointments           | ❌             | ❌      | ✅     | ❌       |
+| Complete appointments           | ❌             | ✅      | ❌     | ❌       |
+| Cancel appointments             | ❌             | ✅      | ✅     | ❌       |
+| Create medical records          | ❌             | ✅      | ❌     | ❌       |
+| View medical records            | ✅             | ✅      | ❌     | ✅ (own only) |
+
 
 ## Security Features
 
