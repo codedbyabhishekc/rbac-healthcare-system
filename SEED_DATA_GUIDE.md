@@ -210,32 +210,6 @@ The seed data includes realistic medical records for:
 
 ---
 
-## 📊 Data Flow Relationships
-
-```
-Administrators (3)
-├── Can view all users
-├── Can delete users
-└── Can view all appointments and records
-
-Doctors (8)
-├── Have appointments with patients
-├── Create medical records for patients
-└── Can complete/cancel appointments
-
-Nurses (7)
-├── Schedule appointments
-├── View all appointments
-└── Can cancel appointments
-
-Patients (15)
-├── Have appointments with doctors
-├── Have medical records created by doctors
-└── Can only view their own data
-```
-
----
-
 ## 🛠️ Customizing Seed Data
 
 ### Add More Users
