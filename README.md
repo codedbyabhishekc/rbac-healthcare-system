@@ -13,7 +13,7 @@ A comprehensive Role-Based Access Control (RBAC) system built with React, Expres
 
 ---
 
-[<img alt="alt_text" width="40px" src="1762086881376.jpeg" />](https://www.google.com/)
+[<img alt="Swagger" height="1024px" width="800px" src="1762086881376.jpeg" />](https://www.google.com/)
 
 ---
 
