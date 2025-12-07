@@ -12,8 +12,9 @@ A comprehensive Role-Based Access Control (RBAC) system built with React, Expres
 | [🌱 Seed Data Guide](SEED_DATA_GUIDE.md) | How to use test data (30+ records) |
 
 ---
-
-[<img alt="Swagger" height="1024px" width="800px" src="1762086881376.jpeg" />](https://www.google.com/)
+## 🔗 Sample Screenshots
+[<img alt="Swagger" height="1024px" width="800px" src="1762086881376.jpeg" />](https://github.com/codedbyabhishekc/rbac-healthcare-system/blob/main/1762086881376.jpeg)
+[<img alt="Swagger" height="1024px" width="800px" src="Pasted%20image.png" />](https://github.com/codedbyabhishekc/rbac-healthcare-system/blob/main/Pasted%20image.png)
 
 ---
 
